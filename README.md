@@ -88,8 +88,10 @@ Firstly, your must install node module `replace` => `npm install --save replace`
 
 ```javascript
 
+// ReplaceFiles is the js containing your API_URL. I use app.js for this example
+
 var replace = require('replace');
-var replaceFiles = ['./www/js/app.js']; // ReplaceFiles is the js containing your API_URL. I use app.js for this example
+var replaceFiles = ['./www/js/app.js']; 
 
 gulp.task('change_url', function() {
   return replace({
