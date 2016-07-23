@@ -12,6 +12,8 @@ If you run **Ionic serve** on your navigator. You will come across this error:
 There are this error because by default browers do not accept cross domain.
 This error is not valid for your mobile.
 
+### Create a proxy ###
+
 For resolve this error you must create proxy. go to `ionic.project` and add this code :
 
 ```javascript
@@ -38,4 +40,17 @@ Example `ionic.project`:
 }
 ```
 
-Now you use `/api` in your ionic project for call your backend API `http://localhost:8080/api`
+Now you use `/api` in your project for call your backend API `http://localhost:8080/api`
+
+
+### Angular Constant ###
+
+If you want to use angular constant API_URL.
+
+```javascript
+angular.module('starter', ['ionic'])
+.constant('API_URL', {
+  url: 'http://localhost:8100/api'
+})
+
+```
