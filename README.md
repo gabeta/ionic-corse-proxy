@@ -23,7 +23,7 @@ For resolve this error you must create proxy. go to `ionic.project` and add this
   ]
 ```
 
-Exemple `ionic.project`:
+Example `ionic.project`:
 
 ```javascript
 {
