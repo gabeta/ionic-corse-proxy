@@ -49,8 +49,30 @@ If you want to use angular constant API_URL.
 
 ```javascript
 angular.module('starter', ['ionic'])
-.constant('API_URL', {
-  url: 'http://localhost:8100/api'
+.constant(
+	'API_URL' : 'http://localhost:8100/api'
+  )
+```
+Once this is done, you can use the constant anywhere in your app, by including
+
+Example with factory :
+
+```javascript
+angular.module('starter', ['ionic'])
+
+.factory('Api', function($http, API_URL) {
+
+  return {
+  
+    getApiData: function() {
+    	return $http.get(API_URL + '/post')
+      			.then(function(data) {
+        			return data;
+      			});
+  };
+
+  };
+
 })
 
 ```
