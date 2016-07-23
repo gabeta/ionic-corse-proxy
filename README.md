@@ -38,4 +38,4 @@ Example `ionic.project`:
 }
 ```
 
-Now your use `/api` in your ionic project for call your backend API `http://localhost:8080/api`
+Now you use `/api` in your ionic project for call your backend API `http://localhost:8080/api`
