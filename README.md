@@ -40,7 +40,7 @@ Example `ionic.project`:
 }
 ```
 
-Now you use `/api` in your project for call your backend API `http://localhost:8080/api`
+Now you must use `http://localhost:8100/api` in your project for call your backend API `http://localhost:8080/api`
 
 
 ### Angular Constant ###
@@ -69,10 +69,48 @@ angular.module('starter', ['ionic'])
       			.then(function(data) {
         			return data;
       			});
-  };
+    };
 
   };
 
 })
 
 ```
+
+### Automating URL with gulp ###
+
+You must add two task on your `gulpfile`
+
+* change_url : run this task for change `http://localhost:8080/api` to `http://localhost:8100/api` 
+* rollback_url : run this task for remove `http://localhost:8100/api` to `http://localhost:8080/api`
+
+Firstly, your must install node module `replace` => `npm install --save replace`
+
+```javascript
+
+var replace = require('replace');
+var replaceFiles = ['./www/js/app.js']; // ReplaceFiles is the js containing your API_URL. I use app.js for this example
+
+gulp.task('change_url', function() {
+  return replace({
+    regex: "http://localhost:8080/api",
+    replacement: "http://localhost:8100/api",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  });
+})
+
+gulp.task('rollback_url', function() {
+  return replace({
+    regex: "http://localhost:8100/api",
+    replacement: "http://localhost:8080/api",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  });
+})
+
+```
+
+#Enjoy !!!!#
